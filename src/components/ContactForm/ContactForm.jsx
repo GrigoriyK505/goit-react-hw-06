@@ -7,10 +7,9 @@ import { addContact } from '../redux/contactsSlice';
 
     
 const ContactForm = () => {
-
+    const dispatch = useDispatch();
     const onlyLetters = /^[A-Za-zА-Яа-яЄєІіЇїҐґ-\s]+$/;
     const onlyNumbers = /^[0-9]+$/;
-    
     const validationSchema = Yup.object().shape({
         name: Yup.string()
             .min(3, 'Min 3 letters')
@@ -24,11 +23,11 @@ const ContactForm = () => {
     });
 
     const initialValues = { name: '', number: '' };
-    const dispatch = useDispatch();
     
     const onSubmit = (values, options) => {
         const newContact = {
             name: values.name,
+            number: values.number,
             id: crypto.randomUUID(),
         };
         dispatch(addContact(newContact));
