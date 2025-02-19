@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import '../src/index.css'
 import App from '../src/components/App'
 import { Provider } from 'react-redux'
-import { persistor, store } from './components/redux/store'
+import { persistor, store } from './redux/store'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Toaster } from 'react-hot-toast'
 
